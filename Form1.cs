@@ -36,7 +36,7 @@ namespace Projeto_2_AED2
 
         private async Task<bool> checkDicionario(string palavra)
         {
-            var linhas = File.ReadAllLines("../../../dicionario.txt", Encoding.GetEncoding("ISO-8859-1"));
+            var linhas = File.ReadAllLines("dicionario.txt", Encoding.GetEncoding("ISO-8859-1"));
             foreach (var linha in linhas)
             {
                 foreach(var item in linha.Split(","))
@@ -52,9 +52,9 @@ namespace Projeto_2_AED2
 
         public void adcionaDicionario(string palavra)
         {
-            var linhas = File.ReadAllLines("../../../dicionario.txt", Encoding.GetEncoding("ISO-8859-1"));
+            var linhas = File.ReadAllLines("dicionario.txt", Encoding.GetEncoding("ISO-8859-1"));
             linhas[linhas.Length - 1] += palavra.ToLower() + ",";
-            File.WriteAllLines("../../../dicionario.txt", linhas, Encoding.GetEncoding("ISO-8859-1"));
+            File.WriteAllLines("dicionario.txt", linhas, Encoding.GetEncoding("ISO-8859-1"));
         }
 
         private async void richTextBox1_KeyDown(object sender, KeyEventArgs e)
@@ -68,8 +68,8 @@ namespace Projeto_2_AED2
                 {
                     this.richTextBox1.SelectionStart = this.richTextBox1.Text.Length - palavra.Length;
                     this.richTextBox1.SelectionLength = palavra.Length;
-                    richTextBox1.Text = (richTextBox1.SelectedText.ToUpper());
-                    //this.richTextBox1.SelectionStart = 0;
+                    richTextBox1.Text = richTextBox1.Text.Replace(richTextBox1.SelectedText, richTextBox1.SelectedText.ToUpper());// + (richTextBox1.SelectedText.ToUpper());
+                    this.richTextBox1.SelectionStart = richTextBox1.Text.Length;
                 }
             }
         }
