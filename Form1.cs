@@ -41,7 +41,7 @@ namespace Projeto_2_AED2
             {
                 foreach(var item in linha.Split(","))
                 {
-                    if (palavra == item)
+                    if (palavra.ToLower() == item)
                     {
                         return true;
                     }
@@ -53,7 +53,7 @@ namespace Projeto_2_AED2
         public void adcionaDicionario(string palavra)
         {
             var linhas = File.ReadAllLines("../../../dicionario.txt", Encoding.GetEncoding("ISO-8859-1"));
-            linhas[linhas.Length - 1] += palavra + ",";
+            linhas[linhas.Length - 1] += palavra.ToLower() + ",";
             File.WriteAllLines("../../../dicionario.txt", linhas, Encoding.GetEncoding("ISO-8859-1"));
         }
 
