@@ -20,7 +20,7 @@ namespace Projeto_2_AED2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            richTextBox1.SelectionFont = new Font("Arial", (float)9);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -68,8 +68,14 @@ namespace Projeto_2_AED2
                 {
                     this.richTextBox1.SelectionStart = this.richTextBox1.Text.Length - palavra.Length;
                     this.richTextBox1.SelectionLength = palavra.Length;
-                    richTextBox1.Text = richTextBox1.Text.Replace(richTextBox1.SelectedText, richTextBox1.SelectedText.ToUpper());// + (richTextBox1.SelectedText.ToUpper());
+                    
+                    richTextBox1.SelectionFont = new Font("Arial", (float)9, FontStyle.Underline);
+
+                    // Funcionando colocando com UPPER ao invés de underline
+                    // richTextBox1.Text = richTextBox1.Text.Replace(richTextBox1.SelectedText, richTextBox1.SelectedText.ToUpper());
                     this.richTextBox1.SelectionStart = richTextBox1.Text.Length;
+
+                    richTextBox1.SelectionFont = new Font("Arial", (float)9);
                 }
             }
         }
@@ -85,6 +91,8 @@ namespace Projeto_2_AED2
                     adcionaDicionario(palavra);
                 }
             }
+            richTextBox1.SelectAll();
+            richTextBox1.SelectionFont = new Font("Arial", (float)9);
         }
     }
 }
