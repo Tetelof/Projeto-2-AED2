@@ -23,17 +23,6 @@ namespace Projeto_2_AED2
             richTextBox1.SelectionFont = new Font("Arial", (float)9);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-
         private async Task<bool> checkDicionario(string palavra)
         {
             var linhas = File.ReadAllLines("dicionario.txt", Encoding.GetEncoding("ISO-8859-1"));
@@ -93,6 +82,11 @@ namespace Projeto_2_AED2
             }
             richTextBox1.SelectAll();
             richTextBox1.SelectionFont = new Font("Arial", (float)9);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
